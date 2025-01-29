@@ -1,0 +1,132 @@
+:root {
+    --white: hsl(0, 0%, 100%);
+    --light-pink: hsl(275, 100%, 97%);
+    --grayish-purple: hsl(292, 16%, 49%);
+    --dark-purple: hsl(292, 42%, 14%);
+    --bright-purple: hsl(280 87.93% 54.51%);
+}
+
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../fonts/WorkSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal,700,800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../fonts/WorkSans-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+body {
+    font-family: 'WorkSans', sans-serif;
+    background-color: var(--light-pink);
+    background-image: url('../images/background-pattern-desktop.svg');
+    background-repeat: repeat-x;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.faqs-card {
+    width: 500px;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 160px;
+    box-shadow: 15px 20px 30px 0px #2e153321;
+}
+
+.faqs-card h1 {
+    font-family: 'WorkSans';
+    font-weight: 800;
+    margin: 0 0 1rem;
+    display: flex;
+}
+.faqs-card h1::before {
+    content: '';
+    background-image: url(../images/icon-star.svg);
+    display: inline-block;
+    height: 2.5rem;
+    width: 3.5rem;
+    background-repeat: no-repeat;
+}
+
+.faqs-card summary {
+    font-family: 'WorkSans';
+    font-weight: 700;    
+    color: var(--dark-purple);
+    display: flex;
+    justify-content: space-between;
+}
+
+.faqs-card p {
+    color: var(--grayish-purple);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+}
+
+.faqs-card summary::marker {
+    content: ""; 
+}
+
+.faqs-card details {
+    border-bottom: 1px solid var(--light-pink);
+    padding: 0.6rem 0px;
+}
+
+.faqs-card details:last-child {
+    border: none;
+}
+
+
+.faqs-card details[open] p {
+    max-height: 150px; 
+    opacity: 1;
+}
+
+.faqs-card details > summary::after {
+    background-color: unset;
+    content: "";
+    background-image: url('../images/icon-plus.svg');
+    min-width: 30px !important;
+    min-height: 30px !important;
+    margin-left: 0.6rem;
+    background-repeat: no-repeat;
+}
+
+.faqs-card details[open] > summary:first-of-type::after {
+    content: "";
+    background-image: url('../images/icon-minus.svg');
+    background-color: unset;
+    background-repeat: no-repeat;
+}
+
+.attribution { font-size: 11px; 
+    text-align: center; 
+    position: absolute; 
+    bottom: 0.5rem;
+}
+.attribution a { 
+    color: var(--white)
+}
+
+
+@media screen and (max-width: 650px){
+
+    body {
+        background-image: url('../images/background-pattern-mobile.svg');
+    }
+    .faqs-card {
+        width: 275px;
+    } 
+}
